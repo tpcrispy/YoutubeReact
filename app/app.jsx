@@ -6,6 +6,7 @@ import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 const API_KEY = 'AIzaSyCHAjwFJwpJR1wpXikKFJbGzqnOqf3v4MY';
 
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -28,7 +29,9 @@ class App extends Component {
       <div>
         <SearchBar />
         <VideoDetail video={this.state.selectedVideo} />
-        <VideoList videos={this.state.videos}/>
+        <VideoList
+           onVideoSelect={selectedVideo => this.setState({selectedVideo}) }
+           videos={this.state.videos}/>
       </div>
     );
   }
